@@ -1,20 +1,3 @@
-// function greet(num){
-//     let count=0
-//     for(i=1;i<=num;i++){
-//         if(num%i==0){
-//             count++
-//         }
-//     }
-//     if(count==2){
-//         return true
-//     }
-//     else{
-//         return false
-//     }
-// } 
-// let result=greet(3)
-// console.log(result)
-
 function com(num){
     for(i=1;i<=num;i++){
         var count=0
