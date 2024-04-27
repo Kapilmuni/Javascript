@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            margin-top: 10px;
+            margin-left: 130px;
+        }
+    </style>
+</head>
+<body>
+    <label for="">Hours</label>
+    <input id="hour" type="number" min="0" value="0">
+    <label for="">Minutes</label>
+    <input id="minute" type="number" min="0" max="59" value="0">
+    <label for="">Seconds</label>
+    <input id="second" type="number" min="0" max="59" value="0">
+    <div>
+        <button onclick="startTimer()">start</button>
+        <button onclick="pauseTimer()">pause</button>
+        <button onclick="resetTimer()">reset</button>
+    </div>
+</body>
+</html>
+<script>
+    let timeRemaining;
+    let intervalId;
+    function startTimer(){
+        let hour=Number(document.getElementById("hour").value)
+        let minute=Number(document.getElementById("minute").value)
+        let second=Number(document.getElementById("second").value)
+        
+        timeRemaining=hour*3600+minute*60+second;
+        intervalId=setInterval(function(){
+            timeRemaining--;
+            let hrs=Math.floor(timeRemaining/3600);
+            let mins=Math.floor(timeRemaining%3600/60);
+            let sec=Math.floor(timeRemaining%60);
+
+            document.getElementById("hour").value=hrs;
+            document.getElementById("minute").value=mins;
+            document.getElementById("second").value=sec;
+
+            if(timeRemaining<=0){
+                clearInterval(intervalId)
+                intervalId=null;
+                alert("timer is ended")
+            }
+        },1000);
+    }
+    function pauseTimer(){
+        clearInterval(intervalId);
+        intervalId=null;
+    }
+    function resetTimer(){
+        pauseTimer()
+        document.getElementById("hour").value=0;
+        document.getElementById("minute").value=0;
+        document.getElementById("second").value=0;
+    }
+</script>

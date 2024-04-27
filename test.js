@@ -35,11 +35,12 @@
 // com(50)
 function yourFirstNested(num) {
     for (var i = 0; i < num; i++) {
-        var row = "";
+        // var row = "";
         for (var j = 1; j <= num; j++) {
-            row += j + " ";
+            // row += j + " ";
+            console.log("hello");
         }
-        console.log(row);
+        
     }
 }
 yourFirstNested(5)

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cont{
+            height: 500px ;
+            width: 600px;
+            margin: auto;
+            margin-top: 50px;
+            border: 1px solid brown;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="cont"></div>
+    <button onclick="next()">Next</button>
+    <button onclick="previous()">Previous</button>
+    <button onclick="start()">start</button>
+    <button onclick="stop()">stop</button>
+</body>
+<script>
+    let i=0;
+    let inter; // Declare inter outside of the functions
+    let srcArr =[
+    "https://picsum.photos/id/20/367/267",
+    "https://picsum.photos/id/21/367/267",    
+    "https://picsum.photos/200/300/?blur",
+
+    ]
+    
+    function displayImg(index){
+        let cont=document.getElementById("cont");
+        cont.innerHTML="";
+        let img=document.createElement("img");
+        img.src=srcArr[index];
+        cont.append(img); 
+    }
+
+    function start(){
+        inter=setInterval(() => {
+            displayImg(i)
+            i++;
+            if(i==srcArr.length){
+                i=0;
+            }
+        },3000);
+    }
+
+    function stop(){
+        clearInterval(inter);
+    }
+    function next(){
+        displayImg(++i)
+    }
+
+    function previous(){
+        displayImg(--i)
+    }
+</script>
+</html>
