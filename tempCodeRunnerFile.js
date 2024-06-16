@@ -1,33 +1,7 @@
-// function greet(num){
-//     let count=0
-//     for(i=1;i<=num;i++){
-//         if(num%i==0){
-//             count++
-//         }
+for(let key in departments){
+//     if(key==='math' || key==='science'){
+//         ans[key+"TeachersCount"]=departments[key].teachers;
+//         ans[key+"StudentsCount"]=departments[key].students;
+//         // console.log(ans)
 //     }
-//     if(count==2){
-//         return true
-//     }
-//     else{
-//         return false
-//     }
-// } 
-// let result=greet(3)
-// console.log(result)
-
-function com(num){
-    for(i=1;i<=num;i++){
-        var count=0
-        if(i>1){
-            for(j=1;j<=i;j++){
-                if(i%j==0){
-                    count++
-                }
-            }
-            if(count==2){
-                console.log(i,"is prime")
-            }
-        }   
-    }
-}
-com(50)
+// }
